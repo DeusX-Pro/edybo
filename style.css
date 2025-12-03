@@ -4682,3 +4682,25 @@ table .cart-subtotal {
     margin-bottom: 20px;
   }
 }
+
+  .service-detail {
+    display: none;
+  }
+  
+  .service-detail.active {
+    display: block;
+  }
+  
+  #menu-services-menu li {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  #menu-services-menu li:hover {
+    padding-left: 5px;
+  }
+  
+  #menu-services-menu li.current-menu-item a {
+    color: #f39c12;
+    font-weight: bold;
+  }

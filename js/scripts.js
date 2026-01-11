@@ -672,3 +672,43 @@ if ($('.image-link').length) {
     });// JavaScript Document
 }
 } )( jQuery );
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const serviceLinks = document.querySelectorAll('#menu-services-menu a');
+  const serviceDetails = document.querySelectorAll('.service-detail');
+  
+  serviceLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Get the service ID from data attribute
+      const serviceId = this.getAttribute('data-service');
+      
+      // Remove active class from all menu items
+      document.querySelectorAll('#menu-services-menu li').forEach(li => {
+        li.classList.remove('current-menu-item');
+      });
+      
+      // Add active class to clicked menu item
+      this.parentElement.classList.add('current-menu-item');
+      
+      // Hide all service details
+      serviceDetails.forEach(detail => {
+        detail.classList.remove('active');
+      });
+      
+      // Show selected service detail
+      const selectedService = document.getElementById(serviceId);
+      if (selectedService) {
+        selectedService.classList.add('active');
+        
+        // Smooth scroll to top of content
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+});
